@@ -1,0 +1,26 @@
+2026-03-03 17:56:29,355 - FilesystemWatcher - INFO - Starting FilesystemWatcher
+2026-03-03 17:56:29,356 - FilesystemWatcher - INFO - Vault path: D:\My Work\Hackathon-0\bronze-tier\AI_Employee_Vault
+2026-03-03 17:56:29,356 - FilesystemWatcher - INFO - Drop folder: D:\My Work\Hackathon-0\bronze-tier\AI_Employee_Vault\Inbox
+2026-03-03 17:56:29,364 - FilesystemWatcher - INFO - Watching for new files in: D:\My Work\Hackathon-0\bronze-tier\AI_Employee_Vault\Inbox
+2026-03-03 17:56:29,364 - FilesystemWatcher - INFO - Press Ctrl+C to stop
+2026-03-03 17:56:29,365 - FilesystemWatcher - ERROR - Fatal error: name 'time' is not defined
+Traceback (most recent call last):
+  File "D:\My Work\Hackathon-0\bronze-tier\scripts\filesystem_watcher.py", line 166, in run
+    time.sleep(1)
+    ^^^^
+NameError: name 'time' is not defined. Did you forget to import 'time'
+2026-03-03 17:58:09,409 - FilesystemWatcher - INFO - Starting FilesystemWatcher
+2026-03-03 17:58:09,409 - FilesystemWatcher - INFO - Vault path: D:\My Work\Hackathon-0\bronze-tier\AI_Employee_Vault
+2026-03-03 17:58:09,409 - FilesystemWatcher - INFO - Drop folder: D:\My Work\Hackathon-0\bronze-tier\AI_Employee_Vault\Inbox
+2026-03-03 17:58:09,411 - FilesystemWatcher - INFO - Watching for new files in: D:\My Work\Hackathon-0\bronze-tier\AI_Employee_Vault\Inbox
+2026-03-03 17:58:09,412 - FilesystemWatcher - INFO - Press Ctrl+C to stop
+2026-03-03 17:58:27,847 - FilesystemWatcher - INFO - New file detected: test_document_2.txt
+2026-03-03 17:58:27,849 - FilesystemWatcher - INFO - Action file created: FILE_DROP_test_document_2.txt_2026-03-03T17-58-27.847742.md
+2026-03-06 17:05:56,100 - FilesystemWatcher - INFO - Starting FilesystemWatcher
+2026-03-06 17:05:56,109 - FilesystemWatcher - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-03-06 17:05:56,109 - FilesystemWatcher - INFO - Drop folder: D:\My Work\Hackathon-0\AI_Employee_Vault\Inbox
+2026-03-06 17:05:56,109 - FilesystemWatcher - INFO - Watching for new files in: D:\My Work\Hackathon-0\AI_Employee_Vault\Inbox
+2026-03-06 17:05:56,109 - FilesystemWatcher - INFO - Press Ctrl+C to stop
+2026-03-06 17:06:55,455 - FilesystemWatcher - INFO - New file detected: new-test.txt
+2026-03-06 17:06:55,455 - FilesystemWatcher - INFO - Action file created: FILE_DROP_new-test.txt_2026-03-06T17-06-55.455852.md
+2026-03-06 17:07:18,042 - FilesystemWatcher - INFO - FilesystemWatcher stopped by user
