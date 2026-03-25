@@ -1,0 +1,41 @@
+2026-03-25T21:24:11: 2026-03-25 21:24:11,924 - google_auth_oauthlib.flow - INFO - Please visit this URL to authorize this application: https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=631727109503-1e8hlej9cgoqmev12mnapmonu9h2rmbb.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A52972%2F&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.readonly&state=K9MYBvx1XEeEowfbv3z2RjSUblsXU9&code_challenge=z1Lp_EHBXY0rSxd33Ma4MVBTtR14j43EK4NSRzm4Oa8&code_challenge_method=S256&access_type=offline
+2026-03-25T21:24:35: 2026-03-25 21:24:35,636 - google_auth_oauthlib.flow - INFO - "GET /?state=K9MYBvx1XEeEowfbv3z2RjSUblsXU9&iss=https://accounts.google.com&code=4/0Aci98E9GSFKlsHrR65OCJlZwPA7YIi0_7i9swR3JtqvkKmWrd-gbyrXnqkjL06AGdcecsw&scope=https://www.googleapis.com/auth/gmail.readonly HTTP/1.1" 200 65
+2026-03-25T21:24:39: 2026-03-25 21:24:39,108 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-03-25T21:24:39: 2026-03-25 21:24:39,155 - GmailWatcher - INFO - Starting GmailWatcher
+2026-03-25T21:24:39: 2026-03-25 21:24:39,155 - GmailWatcher - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-03-25T21:24:39: 2026-03-25 21:24:39,155 - GmailWatcher - INFO - Check interval: 120s
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Found 16 new important emails
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] updated the cons_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] updated the cons_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] created a mcp sd_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] created a mcp sd_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] started the todo_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] started the todo_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,241 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.241677.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ update all_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ update all_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] added logs (PR #_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] added logs (PR #_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ add loggin_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ add loggin_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ add Docker_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,255 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ add Docker_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,271 - GmailWatcher - INFO - Created Gmail action file: GMAIL_GitGuardian_[AnasAhmed001_Q4-Hackathon-2] PostgreSQL URI expos_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,271 - GmailWatcher - INFO - Created action file: GMAIL_GitGuardian_[AnasAhmed001_Q4-Hackathon-2] PostgreSQL URI expos_2026-03-25T21-24-46.255817.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,271 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Forms response receipts_Thanks for filling in this form_ Proforma-10 Teach_2026-03-25T21-24-46.271484.md
+2026-03-25T21:24:46: 2026-03-25 21:24:46,271 - GmailWatcher - INFO - Created action file: GMAIL_Forms response receipts_Thanks for filling in this form_ Proforma-10 Teach_2026-03-25T21-24-46.271484.md
+2026-03-25T21:26:46: 2026-03-25 21:26:46,587 - GmailWatcher - INFO - Found 0 new important emails
+2026-03-25T21:28:46: 2026-03-25 21:28:46,879 - GmailWatcher - INFO - Found 0 new important emails

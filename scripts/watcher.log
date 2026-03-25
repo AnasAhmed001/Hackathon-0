@@ -24,3 +24,58 @@ NameError: name 'time' is not defined. Did you forget to import 'time'
 2026-03-06 17:06:55,455 - FilesystemWatcher - INFO - New file detected: new-test.txt
 2026-03-06 17:06:55,455 - FilesystemWatcher - INFO - Action file created: FILE_DROP_new-test.txt_2026-03-06T17-06-55.455852.md
 2026-03-06 17:07:18,042 - FilesystemWatcher - INFO - FilesystemWatcher stopped by user
+2026-03-06 20:10:24,788 - google_auth_oauthlib.flow - INFO - Please visit this URL to authorize this application: https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=631727109503-r75djf982i9nju5l0d9pkbknjqr12quc.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A56501%2F&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fgmail.readonly&state=VGhx4lmxjzZNFaKpCbCcEWn9Assudm&code_challenge=alrQ8rdfH_2Vv7_5j15BR3Zms3u0UZY3hhLFoEGvbYI&code_challenge_method=S256&access_type=offline
+2026-03-06 20:10:46,331 - google_auth_oauthlib.flow - INFO - "GET /?state=VGhx4lmxjzZNFaKpCbCcEWn9Assudm&iss=https://accounts.google.com&code=4/0AfrIepCZq2ODj3QhnLx01G3U0KLVhOQTol_nhjr-xtaZJ9hIWm5dtfB0HDJ3s3RaNDG3Kg&scope=https://www.googleapis.com/auth/gmail.readonly HTTP/1.1" 200 65
+2026-03-06 20:10:48,403 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-03-06 20:10:48,450 - GmailWatcher - INFO - Starting GmailWatcher
+2026-03-06 20:10:48,450 - GmailWatcher - INFO - Vault path: ..\AI_Employee_Vault
+2026-03-06 20:10:48,450 - GmailWatcher - INFO - Check interval: 120s
+2026-03-06 20:10:56,786 - GmailWatcher - INFO - Found 17 new important emails
+2026-03-06 20:10:56,786 - GmailWatcher - ERROR - Error creating action file for email 19c7a8f3b01183e5: 'str' object has no attribute 'get'
+2026-03-06 20:10:56,786 - GmailWatcher - ERROR - Error processing updates: 'NoneType' object has no attribute 'name'
+Traceback (most recent call last):
+  File "D:\My Work\Hackathon-0\scripts\base_watcher.py", line 86, in run
+    self.logger.info(f'Created action file: {filepath.name}')
+                                             ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'name'
+2026-03-06 20:12:42,230 - googleapiclient.discovery_cache - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-03-06 20:12:42,230 - GmailWatcher - INFO - Starting GmailWatcher
+2026-03-06 20:12:42,230 - GmailWatcher - INFO - Vault path: ..\AI_Employee_Vault
+2026-03-06 20:12:42,230 - GmailWatcher - INFO - Check interval: 120s
+2026-03-06 20:12:50,441 - GmailWatcher - INFO - Found 17 new important emails
+2026-03-06 20:12:50,455 - GmailWatcher - INFO - Created Gmail action file: GMAIL_anas ahmed__2026-03-06T20-12-50.441161.md
+2026-03-06 20:12:50,455 - GmailWatcher - INFO - Created action file: GMAIL_anas ahmed__2026-03-06T20-12-50.441161.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] updated the cons_2026-03-06T20-12-50.455321.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] updated the cons_2026-03-06T20-12-50.455321.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] created a mcp sd_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] created a mcp sd_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] started the todo_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] started the todo_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,458 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.458595.md
+2026-03-06 20:12:50,471 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.471098.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.471098.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created action file: GMAIL_Garena Account_Verification Code for Your Free Fire Account_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ update all_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ update all_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,473 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] added logs (PR #_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] added logs (PR #_2026-03-06T20-12-50.473619.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ add loggin_2026-03-06T20-12-50.481625.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ add loggin_2026-03-06T20-12-50.481625.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created Gmail action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ add Docker_2026-03-06T20-12-50.481625.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created action file: GMAIL_vercel[bot]_Re_ [AnasAhmed001_Q4-Hackathon-2] feat_ add Docker_2026-03-06T20-12-50.481625.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created Gmail action file: GMAIL_GitGuardian_[AnasAhmed001_Q4-Hackathon-2] PostgreSQL URI expos_2026-03-06T20-12-50.481625.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created action file: GMAIL_GitGuardian_[AnasAhmed001_Q4-Hackathon-2] PostgreSQL URI expos_2026-03-06T20-12-50.481625.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created Gmail action file: GMAIL_Forms response receipts_Thanks for filling in this form_ Proforma-10 Teach_2026-03-06T20-12-50.481625.md
+2026-03-06 20:12:50,481 - GmailWatcher - INFO - Created action file: GMAIL_Forms response receipts_Thanks for filling in this form_ Proforma-10 Teach_2026-03-06T20-12-50.481625.md
+2026-03-06 20:14:50,868 - GmailWatcher - INFO - Found 0 new important emails
+2026-03-06 20:16:51,291 - GmailWatcher - INFO - Found 0 new important emails

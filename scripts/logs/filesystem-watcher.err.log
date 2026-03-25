@@ -1,0 +1,7 @@
+2026-03-25T21:24:07: D:\My Work\Hackathon-0\scripts\filesystem_watcher.py:2: SyntaxWarning: invalid escape sequence '\M'
+2026-03-25T21:24:07:   """
+2026-03-25T21:24:07: 2026-03-25 21:24:07,659 - FilesystemWatcher - INFO - Starting FilesystemWatcher
+2026-03-25T21:24:07: 2026-03-25 21:24:07,659 - FilesystemWatcher - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-03-25T21:24:07: 2026-03-25 21:24:07,659 - FilesystemWatcher - INFO - Drop folder: D:\My Work\Hackathon-0\AI_Employee_Vault\Inbox
+2026-03-25T21:24:07: 2026-03-25 21:24:07,673 - FilesystemWatcher - INFO - Watching for new files in: D:\My Work\Hackathon-0\AI_Employee_Vault\Inbox
+2026-03-25T21:24:07: 2026-03-25 21:24:07,674 - FilesystemWatcher - INFO - Press Ctrl+C to stop

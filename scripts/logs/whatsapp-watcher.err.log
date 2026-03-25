@@ -1,0 +1,20 @@
+2026-03-25T21:24:07: 2026-03-25 21:24:07,990 - WhatsAppWatcher - INFO - Starting WhatsAppWatcher
+2026-03-25T21:24:07: 2026-03-25 21:24:07,990 - WhatsAppWatcher - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-03-25T21:24:07: 2026-03-25 21:24:07,991 - WhatsAppWatcher - INFO - Check interval: 45s
+2026-03-25T21:24:38: 2026-03-25 21:24:38,045 - WhatsAppWatcher - INFO - WhatsApp selector snapshot: chat_list=0, cell_frame_container=0, unread_badges=15
+2026-03-25T21:24:39: 2026-03-25 21:24:39,600 - WhatsAppWatcher - INFO - Unread rows matched from badges: 10
+2026-03-25T21:24:39: 2026-03-25 21:24:39,600 - WhatsAppWatcher - INFO - Unread summary: matched=10, already_processed=10, new=0
+2026-03-25T21:25:34: 2026-03-25 21:25:34,787 - WhatsAppWatcher - INFO - WhatsApp selector snapshot: chat_list=0, cell_frame_container=0, unread_badges=15
+2026-03-25T21:25:36: 2026-03-25 21:25:36,580 - WhatsAppWatcher - INFO - Unread rows matched from badges: 10
+2026-03-25T21:25:36: 2026-03-25 21:25:36,580 - WhatsAppWatcher - INFO - Unread summary: matched=10, already_processed=9, new=1
+2026-03-25T21:25:36: 2026-03-25 21:25:36,585 - WhatsAppWatcher - INFO - Created WhatsApp action file: WHATSAPP_~ Hammad_2026-03-25T21-25-36.580518.md
+2026-03-25T21:26:29: 2026-03-25 21:26:29,217 - WhatsAppWatcher - INFO - WhatsApp selector snapshot: chat_list=0, cell_frame_container=0, unread_badges=15
+2026-03-25T21:26:31: 2026-03-25 21:26:31,297 - WhatsAppWatcher - INFO - Unread rows matched from badges: 10
+2026-03-25T21:26:31: 2026-03-25 21:26:31,297 - WhatsAppWatcher - INFO - Unread summary: matched=10, already_processed=10, new=0
+2026-03-25T21:27:25: 2026-03-25 21:27:25,688 - WhatsAppWatcher - INFO - WhatsApp selector snapshot: chat_list=0, cell_frame_container=0, unread_badges=14
+2026-03-25T21:27:27: 2026-03-25 21:27:27,454 - WhatsAppWatcher - INFO - Unread rows matched from badges: 10
+2026-03-25T21:27:27: 2026-03-25 21:27:27,454 - WhatsAppWatcher - INFO - Unread summary: matched=10, already_processed=10, new=0
+2026-03-25T21:28:20: 2026-03-25 21:28:20,109 - WhatsAppWatcher - INFO - WhatsApp selector snapshot: chat_list=0, cell_frame_container=0, unread_badges=14
+2026-03-25T21:28:21: 2026-03-25 21:28:21,869 - WhatsAppWatcher - INFO - Unread rows matched from badges: 10
+2026-03-25T21:28:21: 2026-03-25 21:28:21,869 - WhatsAppWatcher - INFO - Unread summary: matched=10, already_processed=9, new=1
+2026-03-25T21:28:21: 2026-03-25 21:28:21,869 - WhatsAppWatcher - INFO - Created WhatsApp action file: WHATSAPP_~ Hammad_2026-03-25T21-28-21.869194.md

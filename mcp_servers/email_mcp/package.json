@@ -1,0 +1,27 @@
+{
+  "name": "email-mcp",
+  "version": "1.0.0",
+  "description": "Email MCP server for Claude Code to send emails",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "dotenv": "^16.4.5",
+    "nodemailer": "^6.9.14",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "keywords": [
+    "mcp",
+    "email",
+    "claude",
+    "automation"
+  ],
+  "author": "AI Employee Hackathon",
+  "license": "MIT"
+}

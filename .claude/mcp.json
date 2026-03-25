@@ -1,0 +1,15 @@
+{
+  "servers": [
+    {
+      "name": "email",
+      "command": "node",
+      "args": ["D:\\My Work\\Hackathon-0\\mcp_servers\\email_mcp\\index.js"],
+      "cwd": "D:\\My Work\\Hackathon-0\\mcp_servers\\email_mcp",
+      "env": {
+        "GMAIL_EMAIL": "${GMAIL_EMAIL}",
+        "GMAIL_APP_PASSWORD": "${GMAIL_APP_PASSWORD}",
+        "DRY_RUN": "${DRY_RUN}"
+      }
+    }
+  ]
+}
