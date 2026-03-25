@@ -1,192 +1,254 @@
-# Bronze Tier: AI Employee Foundation
+# Personal AI Employee - Silver Tier Runbook
 
-This folder contains the complete Bronze Tier implementation of the Personal AI Employee hackathon.
+This repository contains a local-first AI Employee implementation for Hackathon 0.
 
-## What is Bronze Tier?
+Current status:
+- Silver-tier foundation with multiple watchers
+- Human-in-the-loop approval flow
+- Local email MCP server
+- Scheduler + PM2 process management
 
-Bronze Tier is the **minimum viable deliverable** for the Personal AI Employee hackathon. It provides:
+## Architecture
 
-- ✅ Obsidian vault with Dashboard.md and Company_Handbook.md
-- ✅ One working Watcher script (File System monitoring)
-- ✅ Claude Code integration ready (reading/writing to vault)
-- ✅ Basic folder structure: /Inbox, /Needs_Action, /Done
-- ✅ Foundation for Silver/Gold tier upgrades
+Core loop:
+1. Watchers detect events and create markdown action files in AI_Employee_Vault/Needs_Action.
+2. Claude Code processes those items and creates plans or approval requests.
+3. Human approves/rejects sensitive tasks via file movement.
+4. Approval handler executes approved actions (MCP integration path) and archives to Done.
 
-**Estimated Setup Time:** 8-12 hours
+Main vault folders:
+- AI_Employee_Vault/Inbox
+- AI_Employee_Vault/Needs_Action
+- AI_Employee_Vault/Pending_Approval
+- AI_Employee_Vault/Approved
+- AI_Employee_Vault/Rejected
+- AI_Employee_Vault/Plans
+- AI_Employee_Vault/Done
+- AI_Employee_Vault/Logs
 
-## Folder Structure
+## Essential Files
 
+Watchers and automation:
+- scripts/base_watcher.py
+- scripts/filesystem_watcher.py
+- scripts/gmail_watcher.py
+- scripts/whatsapp_watcher.py
+- scripts/approval_handler.py
+- scripts/approval_helper.py
+- scripts/plan_generator.py
+- scripts/schedule_tasks.py
+- scripts/requirements.txt
+
+MCP email server:
+- mcp_servers/email_mcp/index.js
+- mcp_servers/email_mcp/package.json
+- mcp_servers/email_mcp/.env
+
+PM2 configs:
+- pm2/ecosystem.watchers.config.cjs
+- pm2/ecosystem.scheduler.config.cjs
+- pm2/PM2_SETUP.md
+
+Project docs:
+- CLAUDE.md
+- Personal AI Employee Hackathon 0_ Building Autonomous FTEs in 2026.md
+
+## Prerequisites
+
+- Python 3.12+
+- Node.js + npm
+- Claude Code
+- Obsidian (for vault UX)
+
+## Setup Commands
+
+From repo root:
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+
+# Python env + dependencies
+py -m venv .venv
+& ".\.venv\Scripts\python.exe" -m pip install -U pip
+& ".\.venv\Scripts\python.exe" -m pip install -r scripts\requirements.txt
+
+# Playwright browser for WhatsApp watcher
+& ".\.venv\Scripts\python.exe" -m playwright install chromium
+
+# Node dependencies
+npm install
+Set-Location "mcp_servers\email_mcp"
+npm install
+Set-Location "..\.."
 ```
-bronze-tier/
-├── AI_Employee_Vault/          # Your Obsidian vault
-│   ├── Dashboard.md            # Main dashboard/status page
-│   ├── Company_Handbook.md     # Rules of engagement
-│   ├── Inbox/                  # Drop folder for files to process
-│   ├── Needs_Action/           # Action items created by Watcher
-│   ├── Done/                   # Completed items archive
-│   ├── Pending_Approval/       # Items awaiting human approval
-│   ├── Plans/                  # Multi-step task plans
-│   ├── Briefings/              # CEO briefings (Gold tier+)
-│   └── Accounting/             # Financial records (Gold tier+)
-└── scripts/
-    ├── base_watcher.py         # Base class for all Watchers
-    ├── filesystem_watcher.py   # File System Watcher implementation
-    └── requirements.txt        # Python dependencies
+
+## Running Components (Manual)
+
+Filesystem watcher:
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+& ".\.venv\Scripts\python.exe" scripts\filesystem_watcher.py "D:\My Work\Hackathon-0\AI_Employee_Vault"
 ```
 
-## Quick Start
+Gmail watcher:
 
-### 1. Install Dependencies
-
-```bash
-cd bronze-tier/scripts
-py -m pip install -r requirements.txt
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+& ".\.venv\Scripts\python.exe" scripts\gmail_watcher.py "D:\My Work\Hackathon-0\AI_Employee_Vault" "D:\My Work\Hackathon-0\credentials.json"
 ```
 
-### 2. Start the Filesystem Watcher
+WhatsApp watcher (recommended for your current setup: headed continuous mode):
 
-```bash
-py filesystem_watcher.py "D:\My Work\Hackathon-0\bronze-tier\AI_Employee_Vault"
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+& ".\.venv\Scripts\python.exe" scripts\whatsapp_watcher.py "D:\My Work\Hackathon-0\AI_Employee_Vault" "D:\My Work\Hackathon-0\scripts\.whatsapp_session" 45 false
 ```
 
-The watcher will:
-- Monitor the `/Inbox` folder for new files
-- Create action files in `/Needs_Action` when files are dropped
-- Log all activity to `watcher.log`
+WhatsApp onboarding only (single cycle):
 
-### 3. Drop a File to Test
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+& ".\.venv\Scripts\python.exe" scripts\whatsapp_watcher.py "D:\My Work\Hackathon-0\AI_Employee_Vault" "D:\My Work\Hackathon-0\scripts\.whatsapp_session" 45 false 0 true
+```
 
-Simply copy any file into the `AI_Employee_Vault/Inbox/` folder. The Watcher will automatically create a corresponding `.md` action file in `Needs_Action/`.
+Approval handler:
 
-### 4. Process with Claude Code
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+& ".\.venv\Scripts\python.exe" scripts\approval_handler.py "D:\My Work\Hackathon-0\AI_Employee_Vault"
+```
 
-Open Claude Code and point it at your vault:
+Scheduler:
 
-```bash
-cd "D:\My Work\Hackathon-0\bronze-tier\AI_Employee_Vault"
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+& ".\.venv\Scripts\python.exe" scripts\schedule_tasks.py "D:\My Work\Hackathon-0\AI_Employee_Vault"
+```
+
+Email MCP server:
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0\mcp_servers\email_mcp"
+npm start
+```
+
+## Running with PM2 (Project-Local)
+
+This repo uses local PM2 via npx (no global install required).
+
+Install local PM2:
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+npm install --save-dev pm2
+```
+
+Start watcher mode:
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+npx pm2 startOrRestart pm2\ecosystem.watchers.config.cjs
+npx pm2 save
+```
+
+Start scheduler mode (do not run with watcher mode at the same time):
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0"
+npx pm2 startOrRestart pm2\ecosystem.scheduler.config.cjs
+npx pm2 save
+```
+
+Common PM2 commands:
+
+```powershell
+npx pm2 list
+npx pm2 logs
+npx pm2 logs whatsapp-watcher
+npx pm2 restart whatsapp-watcher
+npx pm2 stop all
+npx pm2 delete all
+```
+
+## Human-in-the-Loop Commands
+
+List pending approvals:
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0\scripts"
+& "..\.venv\Scripts\python.exe" approval_helper.py list "D:\My Work\Hackathon-0\AI_Employee_Vault"
+```
+
+Approve an item:
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0\scripts"
+& "..\.venv\Scripts\python.exe" approval_helper.py approve "filename.md" "D:\My Work\Hackathon-0\AI_Employee_Vault"
+```
+
+Reject an item:
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0\scripts"
+& "..\.venv\Scripts\python.exe" approval_helper.py reject "filename.md" "D:\My Work\Hackathon-0\AI_Employee_Vault"
+```
+
+## End-to-End Flow
+
+1. Input arrives:
+- Files dropped in AI_Employee_Vault/Inbox
+- New Gmail/WhatsApp unread activity
+
+2. Watchers create action files:
+- FILE_DROP_*.md
+- GMAIL_*.md
+- WHATSAPP_*.md
+
+3. Claude processes Needs_Action:
+- Create plans in AI_Employee_Vault/Plans for complex tasks
+- Create approval files in AI_Employee_Vault/Pending_Approval for sensitive tasks
+
+4. Human decision:
+- Move file to AI_Employee_Vault/Approved or AI_Employee_Vault/Rejected
+
+5. Approval handler processes decision:
+- Executes approved action path
+- Logs activity
+- Moves processed file to AI_Employee_Vault/Done
+
+## Claude Session
+
+```powershell
+Set-Location "D:\My Work\Hackathon-0\AI_Employee_Vault"
 claude
 ```
 
-Then prompt:
-```
-Check the /Needs_Action folder and process any pending items. Create a plan for each item and move completed items to /Done.
-```
+Suggested prompt:
 
-## How It Works
+Process all pending files in /Needs_Action. Create plans for multi-step tasks, route sensitive actions to /Pending_Approval, and move completed work to /Done.
 
-### The Watcher Pattern
+## Security Notes
 
-```
-┌─────────────┐    ┌──────────────┐    ┌─────────────────┐
-│   Drop      │───▶│  Filesystem  │───▶│  Needs_Action/  │
-│   File      │    │   Watcher    │    │  (action file)  │
-│  (Inbox/)   │    │  (running)   │    │                 │
-└─────────────┘    └──────────────┘    └─────────────────┘
-                                              │
-                                              ▼
-┌─────────────┐    ┌──────────────┐    ┌─────────────────┐
-│    Done/    │◀───│  Claude Code │◀───│  Human Reviews  │
-│ (completed) │    │  processes   │    │  & directs      │
-└─────────────┘    └──────────────┘    └─────────────────┘
-```
-
-### Action File Format
-
-When a file is dropped, the Watcher creates a Markdown file like:
-
-```markdown
----
-type: file_drop
-original_name: document.pdf
-size: 1.23 MB
-received: 2026-03-03T17:58:27
-status: pending
-priority: normal
----
-
-# File Drop for Processing
-
-## File Details
-- **Original Name**: document.pdf
-- **Size**: 1.23 MB
-- **Received**: 2026-03-03T17:58:27
-
-## Content/Context
-*Add context about what needs to be done with this file*
-
-## Suggested Actions
-- [ ] Review file contents
-- [ ] Determine required action
-- [ ] Process and move to /Done when complete
-```
-
-## Configuration
-
-### Watcher Settings
-
-Edit `filesystem_watcher.py` to customize:
-
-```python
-# Check interval (default: 5 seconds for filesystem)
-check_interval: int = 5
-
-# Drop folder (defaults to vault/Inbox)
-drop_folder: str = None
-```
-
-### Company Handbook Rules
-
-Edit `Company_Handbook.md` to define your rules:
-- Payment thresholds
-- Communication guidelines
-- Escalation rules
-- Working hours
-
-## Upgrading to Silver Tier
-
-To extend to Silver tier, add:
-
-1. **Gmail Watcher** - Monitor Gmail for important emails
-2. **WhatsApp Watcher** - Monitor WhatsApp for urgent messages
-3. **MCP Server** - Enable sending emails/actions
-4. **Approval Workflow** - Human-in-the-loop for sensitive actions
-5. **Scheduled Tasks** - Cron/Task Scheduler integration
+- Sensitive runtime files are ignored in .gitignore.
+- Keep credentials out of the vault markdown content.
+- Use environment files for secrets in MCP services.
+- Use approval flow for irreversible or risky actions.
 
 ## Troubleshooting
 
-### Watcher not detecting files
+Watcher says 0 new unread while unread exists:
+- Check watcher log summary fields: matched, already_processed, new.
+- If needed for retest, run WhatsApp watcher with reprocess_existing=true.
 
-1. Check `watcher.log` for errors
-2. Ensure the Inbox folder path is correct
-3. Verify the watcher process is running
+WhatsApp session issues:
+- Run onboarding mode once (non-headless) and complete session login.
+- Ensure only one whatsapp_watcher.py process is running.
 
-### Action files not being created
+PM2 command not found:
+- Use local PM2: npx pm2 ...
 
-1. Check file permissions on the vault folder
-2. Ensure Python has write access
-3. Review the log for specific error messages
+## Reference Documents
 
-### Stopping the Watcher
-
-Press `Ctrl+C` in the terminal where the watcher is running.
-
-## Next Steps
-
-After completing Bronze tier:
-
-1. ✅ Test the watcher with various file types
-2. ✅ Process files manually with Claude Code
-3. ⏭️ Add Gmail Watcher (Silver tier)
-4. ⏭️ Add MCP servers for external actions
-5. ⏭️ Implement approval workflows
-
-## Resources
-
-- [Main Hackathon Documentation](../Personal%20AI%20Employee%20Hackathon%200_%20Building%20Autonomous%20FTEs%20in%202026.md)
-- [Watcher Architecture](../Personal%20AI%20Employee%20Hackathon%200_%20Building%20Autonomous%20FTEs%20in%202026.md#watcher-architecture)
-- [Claude Code Documentation](https://claude.com/product/claude-code)
-- [Obsidian Download](https://obsidian.md/download)
-
----
-
-*Bronze Tier Implementation - Personal AI Employee Hackathon 0*
+- CLAUDE.md
+- Personal AI Employee Hackathon 0_ Building Autonomous FTEs in 2026.md
