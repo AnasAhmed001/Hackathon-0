@@ -78,6 +78,27 @@ module.exports = {
       merge_logs: true,
       out_file: 'scripts\\logs\\whatsapp-watcher.out.log',
       error_file: 'scripts\\logs\\whatsapp-watcher.err.log'
+    },
+    {
+      name: 'linkedin-poster',
+      script: 'py',
+      args: [
+        'scripts\\linkedin_poster.py',
+        'D:\\My Work\\Hackathon-0\\AI_Employee_Vault',
+        'D:\\My Work\\Hackathon-0\\scripts\\.linkedin_session',
+        'true',
+        'false'
+      ],
+      cwd: 'D:\\My Work\\Hackathon-0',
+      interpreter: 'none',
+      autorestart: true,
+      watch: false,
+      max_restarts: 10,
+      restart_delay: 3000,
+      time: true,
+      merge_logs: true,
+      out_file: 'scripts\\logs\\linkedin-poster.out.log',
+      error_file: 'scripts\\logs\\linkedin-poster.err.log'
     }
   ]
 };

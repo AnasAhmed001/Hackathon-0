@@ -190,6 +190,8 @@ class ApprovalHandler(BaseWatcher):
             self._make_approved_payment(params)
         elif action_type == 'post_social':
             self._post_approved_social(params)
+        elif action_type == 'post_linkedin':
+            self._post_approved_linkedin(params)
         else:
             self.logger.warning(f'Unknown action type: {action_type}')
 
@@ -223,6 +225,21 @@ class ApprovalHandler(BaseWatcher):
         # In a real implementation, this would call a social media MCP server
         # For now, we'll just log it
         print(f"[MCP CALL SIMULATION] Posting to {platform}: {content[:50]}...")
+
+    def _post_approved_linkedin(self, params):
+        """Handle approved LinkedIn post.
+
+        The linkedin_poster.py daemon picks up approved files directly
+        from Approved/ folder. This handler logs the approval event
+        so there's a record even if the poster processes it first.
+        """
+        content = params.get('content', 'No content')
+        visibility = params.get('visibility', 'public')
+        self.logger.info(
+            f'LinkedIn post approved for publishing '
+            f'(visibility={visibility}, length={len(content)} chars)'
+        )
+        print(f"[LINKEDIN] Approved for posting: {content[:80]}...")
 
     def _log_rejection(self, params, original_file):
         """Log that an action was rejected."""

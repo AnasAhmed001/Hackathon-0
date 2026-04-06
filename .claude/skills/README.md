@@ -12,6 +12,7 @@ This directory contains modular skills for the Personal AI Employee workflow.
 - ai-vault-task-closure-logging: Move artifacts to Done and write logs
 - ai-vault-watcher-operations: Start, monitor, and recover watcher processes
 - ai-vault-end-to-end-orchestrator: Coordinate the full workflow
+- ai-vault-linkedin-posting: Create, approve, and publish LinkedIn posts for business promotion
 
 ## Typical Sequence
 

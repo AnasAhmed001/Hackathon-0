@@ -1,0 +1,74 @@
+2026-04-06 15:37:06,397 - LinkedInPoster - INFO - Starting LinkedInPoster
+2026-04-06 15:37:06,398 - LinkedInPoster - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-04-06 15:37:06,398 - LinkedInPoster - INFO - Session path: D:\My Work\Hackathon-0\scripts\.linkedin_session
+2026-04-06 15:37:06,398 - LinkedInPoster - INFO - Headless: False
+2026-04-06 15:37:06,398 - LinkedInPoster - INFO - Dry run: False
+2026-04-06 15:37:06,398 - LinkedInPoster - INFO - Check interval: 300s
+2026-04-06 15:37:06,398 - LinkedInPoster - INFO - Max posts/day: 2
+2026-04-06 15:37:27,584 - LinkedInPoster - INFO - LinkedIn login required. Please log in manually in the browser window.
+2026-04-06 15:39:32,108 - LinkedInPoster - ERROR - Login timeout exceeded
+2026-04-06 15:39:32,108 - LinkedInPoster - ERROR - Login failed or timed out
+2026-04-06 15:41:29,541 - LinkedInPoster - INFO - Starting LinkedInPoster
+2026-04-06 15:41:29,541 - LinkedInPoster - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-04-06 15:41:29,541 - LinkedInPoster - INFO - Session path: D:\My Work\Hackathon-0\scripts\.linkedin_session
+2026-04-06 15:41:29,541 - LinkedInPoster - INFO - Headless: False
+2026-04-06 15:41:29,541 - LinkedInPoster - INFO - Dry run: False
+2026-04-06 15:41:29,543 - LinkedInPoster - INFO - Check interval: 300s
+2026-04-06 15:41:29,543 - LinkedInPoster - INFO - Max posts/day: 2
+2026-04-06 15:41:36,987 - LinkedInPoster - INFO - LinkedIn login required. Please log in manually in the browser window.
+2026-04-06 15:43:40,001 - LinkedInPoster - ERROR - Login timeout exceeded
+2026-04-06 15:43:40,001 - LinkedInPoster - ERROR - Login failed or timed out
+2026-04-06 15:44:29,804 - LinkedInPoster - INFO - Starting LinkedInPoster
+2026-04-06 15:44:29,804 - LinkedInPoster - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-04-06 15:44:29,818 - LinkedInPoster - INFO - Session path: D:\My Work\Hackathon-0\scripts\.linkedin_session
+2026-04-06 15:44:29,818 - LinkedInPoster - INFO - Headless: False
+2026-04-06 15:44:29,818 - LinkedInPoster - INFO - Dry run: False
+2026-04-06 15:44:29,818 - LinkedInPoster - INFO - Check interval: 300s
+2026-04-06 15:44:29,819 - LinkedInPoster - INFO - Max posts/day: 2
+2026-04-06 15:44:41,242 - LinkedInPoster - INFO - LinkedIn session active. Watching for approved posts...
+2026-04-06 15:44:41,245 - LinkedInPoster - INFO - Found 1 approved LinkedIn posts to publish
+2026-04-06 15:44:41,245 - LinkedInPoster - INFO - Publishing: LINKEDIN_POST_business_update_20260406_153559.md
+2026-04-06 15:44:49,864 - LinkedInPoster - INFO - Adding 2.9s random delay
+2026-04-06 15:44:53,763 - LinkedInPoster - ERROR - Could not find 'Start a post' button
+2026-04-06 15:44:53,770 - LinkedInPoster - ERROR - [FAIL] Failed to post: LINKEDIN_POST_business_update_20260406_153559.md
+2026-04-06 15:57:26,247 - LinkedInPoster - INFO - Starting LinkedInPoster
+2026-04-06 15:57:26,252 - LinkedInPoster - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-04-06 15:57:26,252 - LinkedInPoster - INFO - Session path: D:\My Work\Hackathon-0\scripts\.linkedin_session
+2026-04-06 15:57:26,252 - LinkedInPoster - INFO - Headless: False
+2026-04-06 15:57:26,252 - LinkedInPoster - INFO - Dry run: False
+2026-04-06 15:57:26,252 - LinkedInPoster - INFO - Check interval: 300s
+2026-04-06 15:57:26,252 - LinkedInPoster - INFO - Max posts/day: 2
+2026-04-06 15:57:37,479 - LinkedInPoster - INFO - LinkedIn session active. Watching for approved posts...
+2026-04-06 15:57:37,479 - LinkedInPoster - INFO - Found 1 approved LinkedIn posts to publish
+2026-04-06 15:57:37,479 - LinkedInPoster - INFO - Publishing: LINKEDIN_POST_business_update_20260406_153559.md
+2026-04-06 15:57:45,085 - LinkedInPoster - INFO - Adding 3.0s random delay
+2026-04-06 15:57:52,424 - LinkedInPoster - INFO - Adding 3.3s random delay
+2026-04-06 15:57:57,879 - LinkedInPoster - ERROR - Error publishing post: Locator.fill: Error: Element is not an <input>, <textarea>, <select> or [contenteditable] and does not have a role allowing [aria-readonly]
+Call log:
+  - waiting for locator("div[role=\"textbox\"][contenteditable=\"true\"], div.ql-editor[contenteditable=\"true\"], div[aria-label*=\"Text editor\" i][contenteditable=\"true\"], div.share-creation-state__text-editor, .editor-content p").first
+    - locator resolved to <div class="share-creation-state__text-editor↵            share-creation-state__text-editor-redesigned↵            ↵            ↵            ">…</div>
+    - fill("This post was entirely created and published by my AI Full-Time Employee -- an autonomous agent that manages my business operations 24/7. It drafted this content, routed it through a human-in-the-loop approval workflow, and posted it directly to LinkedIn using Playwright browser automation. No manual copy-paste, no scheduling tool -- just an AI employee doing its job. Built with Claude Code as the brain, Obsidian as the dashboard, and Python + Playwright as the hands. The future of work isn't coming -- it's already here. What do you think about AI employees handling your social media?
+
+  #AI #Automation #FutureOfWork #Playwright #ClaudeCode")
+  - attempting fill action
+    - waiting for element to be visible, enabled and editable
+
+2026-04-06 15:57:57,879 - LinkedInPoster - ERROR - [FAIL] Failed to post: LINKEDIN_POST_business_update_20260406_153559.md
+2026-04-06 16:12:16,085 - LinkedInPoster - INFO - Starting LinkedInPoster
+2026-04-06 16:12:16,085 - LinkedInPoster - INFO - Vault path: D:\My Work\Hackathon-0\AI_Employee_Vault
+2026-04-06 16:12:16,085 - LinkedInPoster - INFO - Session path: D:\My Work\Hackathon-0\scripts\.linkedin_session
+2026-04-06 16:12:16,091 - LinkedInPoster - INFO - Headless: False
+2026-04-06 16:12:16,091 - LinkedInPoster - INFO - Dry run: False
+2026-04-06 16:12:16,092 - LinkedInPoster - INFO - Check interval: 300s
+2026-04-06 16:12:16,092 - LinkedInPoster - INFO - Max posts/day: 2
+2026-04-06 16:12:26,721 - LinkedInPoster - INFO - LinkedIn session active. Watching for approved posts...
+2026-04-06 16:12:26,725 - LinkedInPoster - INFO - Found 1 approved LinkedIn posts to publish
+2026-04-06 16:12:26,725 - LinkedInPoster - INFO - Publishing: LINKEDIN_POST_business_update_20260406_153559.md
+2026-04-06 16:12:33,932 - LinkedInPoster - INFO - Adding 4.7s random delay
+2026-04-06 16:12:45,355 - LinkedInPoster - INFO - Adding 2.2s random delay
+2026-04-06 16:12:50,260 - LinkedInPoster - INFO - Adding 3.6s random delay
+2026-04-06 16:12:57,038 - LinkedInPoster - INFO - Adding 4.0s random delay
+2026-04-06 16:13:01,081 - LinkedInPoster - INFO - Post published successfully (editor closed)
+2026-04-06 16:13:02,085 - LinkedInPoster - INFO - Proof screenshot saved: LINKEDIN_POST_business_update_20260406_153559_20260406_161301.png
+2026-04-06 16:13:02,085 - LinkedInPoster - INFO - Moved to Done: LINKEDIN_POST_business_update_20260406_153559.md
+2026-04-06 16:13:02,085 - LinkedInPoster - INFO - [OK] Successfully posted: LINKEDIN_POST_business_update_20260406_153559.md

@@ -13,3 +13,8 @@ AI_Employee_Vault/token.json
 AI_Employee_Vault/.approval_tracking.json
 AI_Employee_Vault/.whatsapp_watcher_state.json
 AI_Employee_Vault/.whatsapp_watcher.lock
+
+# LinkedIn poster runtime artifacts
+scripts/.linkedin_session/
+AI_Employee_Vault/.linkedin_poster_state.json
+AI_Employee_Vault/.linkedin_poster.lock

@@ -119,6 +119,50 @@ class TaskScheduler:
         day_method.at(time_str).do(run_weekly_audit)
         print(f"Scheduled weekly audit every {day.capitalize()} at {time_str}")
 
+    def schedule_linkedin_post(self, days: list = None, time_str: str = "10:00"):
+        """
+        Schedule LinkedIn content generation on specific days.
+
+        Creates draft posts in Pending_Approval/ for human review.
+        The linkedin_poster.py daemon handles publishing after approval.
+
+        Args:
+            days: Days of the week to post (default: Monday, Wednesday, Friday)
+            time_str: Time to generate the post draft
+        """
+        if days is None:
+            days = ["monday", "wednesday", "friday"]
+
+        def run_linkedin_content_generation():
+            try:
+                from linkedin_content_generator import LinkedInContentGenerator
+                generator = LinkedInContentGenerator(str(self.vault_path))
+
+                # Create a placeholder post: Claude or the human will refine it
+                day_name = datetime.now().strftime("%A")
+                generator.create_post_draft(
+                    content=(
+                        f"[Draft — {day_name} LinkedIn post]\n\n"
+                        f"Replace this text with your business update, insight, "
+                        f"or achievement before approving."
+                    ),
+                    hashtags=["Business", "Innovation"],
+                    post_type="business_update",
+                    source="scheduled",
+                )
+                self._log_task_result(
+                    "LinkedIn Post Draft", True,
+                    "Draft created in Pending_Approval/", ""
+                )
+            except Exception as e:
+                self._log_task_result("LinkedIn Post Draft", False, "", str(e))
+
+        for day in days:
+            day_method = getattr(schedule.every(), day.lower())
+            day_method.at(time_str).do(run_linkedin_content_generation)
+
+        print(f"Scheduled LinkedIn post generation on {', '.join(d.capitalize() for d in days)} at {time_str}")
+
     def _log_task_result(self, task_name: str, success: bool, stdout: str, stderr: str):
         """
         Log the result of a scheduled task.
@@ -183,6 +227,7 @@ def main():
     scheduler.schedule_filesystem_check(5)  # Every 5 minutes
     scheduler.schedule_daily_briefing("08:00")  # Every day at 8 AM
     scheduler.schedule_weekly_audit("sunday", "06:00")  # Every Sunday at 6 AM
+    scheduler.schedule_linkedin_post(["monday", "wednesday", "friday"], "10:00")  # Mon/Wed/Fri at 10 AM
 
     # Show scheduled jobs
     scheduler.list_scheduled_jobs()

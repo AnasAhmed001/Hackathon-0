@@ -25,7 +25,8 @@ This is the Personal AI Employee Hackathon 0 project, building an autonomous "Di
 The repository implements the Silver Tier foundation with:
 - AI_Employee_Vault/: Obsidian vault with Dashboard.md, Company_Handbook.md
 - /Inbox, /Needs_Action, /Done, /Pending_Approval, /Approved, /Rejected, /Plans folders
-- scripts/: Python Watcher implementations (base_watcher.py, filesystem_watcher.py, gmail_watcher.py)
+- scripts/: Python Watcher implementations (base_watcher.py, filesystem_watcher.py, gmail_watcher.py, whatsapp_watcher.py)
+- scripts/: LinkedIn posting (linkedin_poster.py, linkedin_content_generator.py)
 - mcp_servers/: Model Context Protocol server implementations (email_mcp)
 
 ## Common Development Tasks
@@ -76,6 +77,24 @@ npm install
 npm start
 ```
 
+### Running the LinkedIn Poster (first-time onboarding)
+```bash
+cd scripts
+py linkedin_poster.py "../AI_Employee_Vault" ".linkedin_session" false
+```
+
+### Running the LinkedIn Poster (headless daemon)
+```bash
+cd scripts
+py linkedin_poster.py "../AI_Employee_Vault" ".linkedin_session" true false
+```
+
+### Creating a LinkedIn Post Draft
+```bash
+cd scripts
+py linkedin_content_generator.py "../AI_Employee_Vault" "Your post content here" "Tag1,Tag2"
+```
+
 ### Processing Action Items
 After Watchers create items in /Needs_Action, Claude Code can process them with:
 ```
@@ -91,9 +110,11 @@ Check the /Needs_Action folder and process any pending items. Create a plan for 
 - scripts/gmail_watcher.py: Gmail monitoring implementation
 - scripts/approval_handler.py: Human-in-the-loop approval workflow
 - scripts/approval_helper.py: Utility for managing approval requests
+- scripts/linkedin_poster.py: Playwright-based LinkedIn auto-poster (Silver tier)
+- scripts/linkedin_content_generator.py: Creates draft LinkedIn post files
 - scripts/requirements.txt: Python dependencies
 - mcp_servers/email_mcp/: Email MCP server implementation
-- README.md: Bronze Tier implementation guide
+- README.md: Silver Tier implementation guide
 - QWEN.md: Context documentation for AI assistants
 
 ## Development Guidelines

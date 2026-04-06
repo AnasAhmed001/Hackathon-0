@@ -3,9 +3,10 @@
 This repository contains a local-first AI Employee implementation for Hackathon 0.
 
 Current status:
-- Silver-tier foundation with multiple watchers
+- Silver-tier complete with multiple watchers + LinkedIn auto-posting
 - Human-in-the-loop approval flow
 - Local email MCP server
+- LinkedIn auto-poster via Playwright
 - Scheduler + PM2 process management
 
 ## Architecture
@@ -33,6 +34,8 @@ Watchers and automation:
 - scripts/filesystem_watcher.py
 - scripts/gmail_watcher.py
 - scripts/whatsapp_watcher.py
+- scripts/linkedin_poster.py
+- scripts/linkedin_content_generator.py
 - scripts/approval_handler.py
 - scripts/approval_helper.py
 - scripts/plan_generator.py
@@ -65,21 +68,19 @@ Project docs:
 From repo root:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
-
 # Python env + dependencies
-py -m venv .venv
-& ".\.venv\Scripts\python.exe" -m pip install -U pip
-& ".\.venv\Scripts\python.exe" -m pip install -r scripts\requirements.txt
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -U pip
+.\.venv\Scripts\python.exe -m pip install -r scripts\requirements.txt
 
 # Playwright browser for WhatsApp watcher
-& ".\.venv\Scripts\python.exe" -m playwright install chromium
+.\.venv\Scripts\python.exe -m playwright install chromium
 
 # Node dependencies
 npm install
-Set-Location "mcp_servers\email_mcp"
+cd mcp_servers\email_mcp
 npm install
-Set-Location "..\.."
+cd ..\..
 ```
 
 ## Running Components (Manual)
@@ -87,50 +88,68 @@ Set-Location "..\.."
 Filesystem watcher:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
-& ".\.venv\Scripts\python.exe" scripts\filesystem_watcher.py "D:\My Work\Hackathon-0\AI_Employee_Vault"
+.\.venv\Scripts\python.exe scripts\filesystem_watcher.py "AI_Employee_Vault"
 ```
 
 Gmail watcher:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
-& ".\.venv\Scripts\python.exe" scripts\gmail_watcher.py "D:\My Work\Hackathon-0\AI_Employee_Vault" "D:\My Work\Hackathon-0\credentials.json"
+.\.venv\Scripts\python.exe scripts\gmail_watcher.py "AI_Employee_Vault" "credentials.json"
 ```
 
 WhatsApp watcher (recommended for your current setup: headed continuous mode):
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
-& ".\.venv\Scripts\python.exe" scripts\whatsapp_watcher.py "D:\My Work\Hackathon-0\AI_Employee_Vault" "D:\My Work\Hackathon-0\scripts\.whatsapp_session" 45 false
+.\.venv\Scripts\python.exe scripts\whatsapp_watcher.py "AI_Employee_Vault" "scripts\.whatsapp_session" 45 false
 ```
 
 WhatsApp onboarding only (single cycle):
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
-& ".\.venv\Scripts\python.exe" scripts\whatsapp_watcher.py "D:\My Work\Hackathon-0\AI_Employee_Vault" "D:\My Work\Hackathon-0\scripts\.whatsapp_session" 45 false 0 true
+.\.venv\Scripts\python.exe scripts\whatsapp_watcher.py "AI_Employee_Vault" "scripts\.whatsapp_session" 45 false 0 true
 ```
 
 Approval handler:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
-& ".\.venv\Scripts\python.exe" scripts\approval_handler.py "D:\My Work\Hackathon-0\AI_Employee_Vault"
+.\.venv\Scripts\python.exe scripts\approval_handler.py "AI_Employee_Vault"
 ```
 
 Scheduler:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
-& ".\.venv\Scripts\python.exe" scripts\schedule_tasks.py "D:\My Work\Hackathon-0\AI_Employee_Vault"
+.\.venv\Scripts\python.exe scripts\schedule_tasks.py "AI_Employee_Vault"
 ```
 
 Email MCP server:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0\mcp_servers\email_mcp"
+cd mcp_servers\email_mcp
 npm start
+```
+
+LinkedIn poster (first-time onboarding — headed mode to log in manually):
+
+```powershell
+.\.venv\Scripts\python.exe scripts\linkedin_poster.py "AI_Employee_Vault" "scripts\.linkedin_session" false
+```
+
+LinkedIn poster (headless daemon after login):
+
+```powershell
+.\.venv\Scripts\python.exe scripts\linkedin_poster.py "AI_Employee_Vault" "scripts\.linkedin_session" true false
+```
+
+LinkedIn poster (dry run — logs posts without publishing):
+
+```powershell
+.\.venv\Scripts\python.exe scripts\linkedin_poster.py "AI_Employee_Vault" "scripts\.linkedin_session" true true
+```
+
+Create a LinkedIn post draft:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\linkedin_content_generator.py "AI_Employee_Vault" "Your post content" "Tag1,Tag2,Tag3"
 ```
 
 ## Running with PM2 (Project-Local)
@@ -140,14 +159,12 @@ This repo uses local PM2 via npx (no global install required).
 Install local PM2:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
 npm install --save-dev pm2
 ```
 
 Start watcher mode:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
 npx pm2 startOrRestart pm2\ecosystem.watchers.config.cjs
 npx pm2 save
 ```
@@ -155,7 +172,6 @@ npx pm2 save
 Start scheduler mode (do not run with watcher mode at the same time):
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0"
 npx pm2 startOrRestart pm2\ecosystem.scheduler.config.cjs
 npx pm2 save
 ```
@@ -176,22 +192,19 @@ npx pm2 delete all
 List pending approvals:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0\scripts"
-& "..\.venv\Scripts\python.exe" approval_helper.py list "D:\My Work\Hackathon-0\AI_Employee_Vault"
+.\.venv\Scripts\python.exe scripts\approval_helper.py list "AI_Employee_Vault"
 ```
 
 Approve an item:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0\scripts"
-& "..\.venv\Scripts\python.exe" approval_helper.py approve "filename.md" "D:\My Work\Hackathon-0\AI_Employee_Vault"
+.\.venv\Scripts\python.exe scripts\approval_helper.py approve "filename.md" "AI_Employee_Vault"
 ```
 
 Reject an item:
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0\scripts"
-& "..\.venv\Scripts\python.exe" approval_helper.py reject "filename.md" "D:\My Work\Hackathon-0\AI_Employee_Vault"
+.\.venv\Scripts\python.exe scripts\approval_helper.py reject "filename.md" "AI_Employee_Vault"
 ```
 
 ## End-to-End Flow
@@ -220,7 +233,7 @@ Set-Location "D:\My Work\Hackathon-0\scripts"
 ## Claude Session
 
 ```powershell
-Set-Location "D:\My Work\Hackathon-0\AI_Employee_Vault"
+cd AI_Employee_Vault
 claude
 ```
 
@@ -245,10 +258,34 @@ WhatsApp session issues:
 - Run onboarding mode once (non-headless) and complete session login.
 - Ensure only one whatsapp_watcher.py process is running.
 
+LinkedIn poster issues:
+- Run onboarding mode first (headed) to complete LinkedIn login.
+- Ensure only one linkedin_poster.py process is active (lock file enforced).
+- Use dry_run=true to test without actually posting.
+- Check scripts/logs/linkedin-poster.out.log for errors.
+
 PM2 command not found:
 - Use local PM2: npx pm2 ...
+
+## LinkedIn Posting Flow
+
+1. Create post draft (manual or scheduled):
+   - Use `linkedin_content_generator.py` or ask Claude to create a post
+   - Draft appears as LINKEDIN_POST_*.md in AI_Employee_Vault/Pending_Approval
+
+2. Human reviews in Obsidian:
+   - Move to AI_Employee_Vault/Approved to authorize publishing
+   - Move to AI_Employee_Vault/Rejected to discard
+
+3. LinkedIn poster publishes:
+   - Picks up approved files automatically
+   - Posts to LinkedIn via Playwright browser automation
+   - Takes proof screenshot (saved in Logs/linkedin_screenshots/)
+   - Moves file to AI_Employee_Vault/Done
+   - Logs result in AI_Employee_Vault/Logs
 
 ## Reference Documents
 
 - CLAUDE.md
 - Personal AI Employee Hackathon 0_ Building Autonomous FTEs in 2026.md
+

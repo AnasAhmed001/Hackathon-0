@@ -1,7 +1,7 @@
 ---
-version: 1.0
-last_updated: 2026-03-03
-tier: bronze
+version: 2.0
+last_updated: 2026-04-06
+tier: silver
 ---
 
 # Company Handbook - Rules of Engagement
@@ -24,6 +24,16 @@ tier: bronze
 - Respond within 24 hours for non-urgent messages
 - Immediate response for keywords: "urgent", "asap", "emergency"
 - Always confirm receipt of important requests
+
+### LinkedIn Posting
+- All posts must go through /Pending_Approval before publishing
+- Maximum 2 posts per day to avoid spam flags
+- Content should promote business value, not hard-sell
+- Use 3-5 relevant hashtags per post
+- Maintain professional, thought-leadership tone
+- Post types: business updates, industry insights, milestones
+- Schedule: Mon/Wed/Fri at 10 AM (default)
+- Never auto-approve posts — human must review
 
 ## Financial Rules
 
@@ -63,3 +73,4 @@ Escalate to human when:
 ---
 
 *This handbook evolves. Update as new rules are established.*
+*Silver Tier — Updated 2026-04-06*
